@@ -4,15 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="758d72fb-c043-4af4-b91b-0b61a9b89a20" name="Changes" comment="Cap13_Aula09">
-      <change afterPath="$PROJECT_DIR$/src/br/com/MKCM/cm/modelo/CampoEvento.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/br/com/MKCM/cm/modelo/CampoObservador.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/br/com/MKCM/cm/modelo/ResultadoEvento.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/br/com/MKCM/cm/visao/PainelTabuleiro.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/br/com/MKCM/cm/visao/Temp.java" afterDir="false" />
+    <list default="true" id="758d72fb-c043-4af4-b91b-0b61a9b89a20" name="Changes" comment="Cap13_Aula08">
+      <change afterPath="$PROJECT_DIR$/src/br/com/MKCM/cm/visao/TelaPrincipal.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/br/com/MKCM/cm/modelo/Campo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/MKCM/cm/modelo/Campo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/br/com/MKCM/cm/modelo/Tabuleiro.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/MKCM/cm/modelo/Tabuleiro.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/br/com/MKCM/cm/visao/Temp.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,27 +37,40 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;
   },
-  "keyToStringList": {
-    "ChangesTree.GroupingKeys": [
-      "module",
-      "directory"
+  &quot;keyToStringList&quot;: {
+    &quot;ChangesTree.GroupingKeys&quot;: [
+      &quot;module&quot;,
+      &quot;directory&quot;
     ]
   }
-}]]></component>
-  <component name="RunManager">
+}</component>
+  <component name="RunManager" selected="Application.TelaPrincipal">
+    <configuration name="TelaPrincipal" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="br.com.MKCM.cm.visao.TelaPrincipal" />
+      <module name="campo-minado-swing" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="br.com.MKCM.cm.visao.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Temp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="br.com.MKCM.cm.visao.Temp" />
       <module name="campo-minado-swing" />
@@ -78,6 +86,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.TelaPrincipal" />
         <item itemvalue="Application.Temp" />
       </list>
     </recent_temporary>
@@ -90,7 +99,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1659291985912</updated>
-      <workItem from="1659291987551" duration="5204000" />
+      <workItem from="1659291987551" duration="5223000" />
+      <workItem from="1659301860989" duration="624000" />
     </task>
     <task id="LOCAL-00001" summary="Cap13_Aula09">
       <created>1659293451560</created>
@@ -99,7 +109,14 @@
       <option name="project" value="LOCAL" />
       <updated>1659293451560</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Cap13_Aula08">
+      <created>1659297251464</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1659297251464</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -118,6 +135,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Cap13_Aula09" />
-    <option name="LAST_COMMIT_MESSAGE" value="Cap13_Aula09" />
+    <MESSAGE value="Cap13_Aula08" />
+    <option name="LAST_COMMIT_MESSAGE" value="Cap13_Aula08" />
   </component>
 </project>
