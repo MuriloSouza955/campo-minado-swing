@@ -2,7 +2,6 @@ package br.com.MKCM.cm.modelo;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.function.BiConsumer;
 
 public class Campo {
 
@@ -30,19 +29,19 @@ public class Campo {
                 .forEach(o -> o.eventoOcorreu(this, evento));
     }
 
-    public boolean adicionarVizinho(Campo vizinho) {
+    boolean adicionarVizinho(Campo vizinho) {
         boolean linhaDiferente = linha != vizinho.linha;
         boolean colunaDiferente = coluna != vizinho.coluna;
         boolean diagonal = linhaDiferente && colunaDiferente;
 
         int deltaLinha = Math.abs(linha - vizinho.linha);
         int deltaColuna = Math.abs(coluna - vizinho.coluna);
-        int detalGeral = deltaColuna + deltaLinha;
+        int deltaGeral = deltaColuna + deltaLinha;
 
-        if (detalGeral == 1 && !diagonal) {
+        if (deltaGeral == 1 && !diagonal) {
             vizinhos.add(vizinho);
             return true;
-        } else if (detalGeral == 2 && diagonal) {
+        } else if (deltaGeral == 2 && diagonal) {
             vizinhos.add(vizinho);
             return true;
         } else {
@@ -67,11 +66,12 @@ public class Campo {
         if (!aberto && !marcado) {
             if (minado) {
                 notificarObservadores(CampoEvento.EXPLODIR);
+                return true;
             }
             setAberto(true);
 
             if (vizinhancaSegura()) {
-                vizinhos.forEach(Campo::abrir);
+                vizinhos.forEach(v -> v.abrir());
             }
 
             return true;
@@ -84,7 +84,7 @@ public class Campo {
         return vizinhos.stream().noneMatch(v -> v.minado);
     }
 
-    public void minar() {
+    void minar() {
         minado = true;
     }
 
@@ -96,7 +96,7 @@ public class Campo {
         return marcado;
     }
 
-    public void setAberto(boolean aberto) {
+    void setAberto(boolean aberto) {
         this.aberto = aberto;
 
         if(aberto){
@@ -126,8 +126,8 @@ public class Campo {
         return desvendado || protegido;
     }
 
-    public long minasNaVizinhanca() {
-        return vizinhos.stream().filter(v -> v.minado).count();
+    public int minasNaVizinhanca() {
+        return (int) vizinhos.stream().filter(v -> v.minado).count();
     }
 
     public void reiniciar() {

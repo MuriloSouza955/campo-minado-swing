@@ -5,7 +5,6 @@ import java.util.List;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
 
-@SuppressWarnings("ALL")
 public class Tabuleiro implements CampoObservador {
 
     private final int linhas;
@@ -29,12 +28,12 @@ public class Tabuleiro implements CampoObservador {
         return colunas;
     }
 
-    public void paraCadaCampo(Consumer<Campo> funcao){
-        campos.forEach(funcao);
-    }
-
     public int getLinhas() {
         return linhas;
+    }
+
+    public void paraCadaCampo(Consumer<Campo> funcao){
+        campos.forEach(funcao);
     }
 
     public void registrarObservador(Consumer<ResultadoEvento> observador) {

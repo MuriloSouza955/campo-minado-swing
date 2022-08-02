@@ -16,7 +16,7 @@ public class BotaoCampo extends JButton implements CampoObservador, MouseListene
     private final Color BG_EXPLODIR = new Color(189, 66, 68);
     private final Color TEXTO_VERDE = new Color(0, 150, 0);
 
-    private Campo campo;
+    private final Campo campo;
 
     public BotaoCampo(Campo campo){
         this.campo = campo;
@@ -28,23 +28,11 @@ public class BotaoCampo extends JButton implements CampoObservador, MouseListene
 
     @Override
     public void eventoOcorreu(Campo campo, CampoEvento evento) {
-        switch (evento){
-            case ABRIR: {
-                aplicarEstiloAbrir();
-                break;
-            }
-            case MARCAR: {
-                aplicarEstiloMarcar();
-                break;
-            }
-            case EXPLODIR: {
-                aplicarEstiloExplodir();
-                break;
-            }
-            default: {
-                aplicarEstiloPadrao();
-            }
-            
+        switch (evento) {
+            case ABRIR -> aplicarEstiloAbrir();
+            case MARCAR -> aplicarEstiloMarcar();
+            case EXPLODIR -> aplicarEstiloExplodir();
+            default -> aplicarEstiloPadrao();
         }
     }
 
@@ -61,7 +49,7 @@ public class BotaoCampo extends JButton implements CampoObservador, MouseListene
         setBackground(BG_PADRAO);
         setBorder(BorderFactory.createLineBorder(Color.GRAY));
 
-        switch ((int) campo.minasNaVizinhanca()) {
+        switch (campo.minasNaVizinhanca()) {
             case 1 -> setForeground(Color.GREEN);
             case 2 -> setForeground(Color.BLUE);
             case 3 -> setForeground(Color.YELLOW);
