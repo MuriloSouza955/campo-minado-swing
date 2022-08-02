@@ -22,15 +22,28 @@ public class BotaoCampo extends JButton implements CampoObservador, MouseListene
         this.campo = campo;
         setBackground(BG_PADRAO);
         setBorder(BorderFactory.createBevelBorder(0));
+
+        addMouseListener(this);
     }
 
     @Override
     public void eventoOcorreu(Campo campo, CampoEvento evento) {
         switch (evento){
-            case ABRIR -> aplicarEstiloAbrir();
-            case MARCAR -> aplicarEstiloMarcar();
-            case EXPLODIR -> aplicarEstiloExplodir();
-            default -> aplicarEstiloPadrao();
+            case ABRIR: {
+                aplicarEstiloAbrir();
+                break;
+            }
+            case MARCAR: {
+                aplicarEstiloMarcar();
+                break;
+            }
+            case EXPLODIR: {
+                aplicarEstiloExplodir();
+                break;
+            }
+            default: {
+                aplicarEstiloPadrao();
+            }
             
         }
     }
@@ -45,30 +58,34 @@ public class BotaoCampo extends JButton implements CampoObservador, MouseListene
     }
 
     private void aplicarEstiloAbrir() {
+        setBackground(BG_PADRAO);
+        setBorder(BorderFactory.createLineBorder(Color.GRAY));
+
+        switch ((int) campo.minasNaVizinhanca()) {
+            case 1 -> setForeground(Color.GREEN);
+            case 2 -> setForeground(Color.BLUE);
+            case 3 -> setForeground(Color.YELLOW);
+            case 4, 5, 6 -> setForeground(Color.RED);
+            default -> setForeground(Color.PINK);
+        }
+
+        String valor = !campo.vizinhancaSegura() ? campo.minasNaVizinhanca() + "" : "";
+        setText(valor);
     }
 
-    @Override
-    public void mouseClicked(MouseEvent e) {
-
-    }
+    // Interface dos eventos do mouse
 
     @Override
     public void mousePressed(MouseEvent e) {
-
+        if (e.getButton() == 1){
+            campo.abrir();
+        }else{
+            campo.alternarMarcacao();
+        }
     }
 
-    @Override
-    public void mouseReleased(MouseEvent e) {
-
-    }
-
-    @Override
-    public void mouseEntered(MouseEvent e) {
-
-    }
-
-    @Override
-    public void mouseExited(MouseEvent e) {
-
-    }
+    public void mouseClicked(MouseEvent e) {}
+    public void mouseReleased(MouseEvent e) {}
+    public void mouseEntered(MouseEvent e) {}
+    public void mouseExited(MouseEvent e) {}
 }

@@ -108,7 +108,7 @@ public class Tabuleiro implements CampoObservador {
         }
     }
 
-    private void mostrarMinas() {
+    public void mostrarMinas() {
         campos.stream().filter(c-> c.isAberto())
                 .forEach(c -> c.setAberto(true));
     }

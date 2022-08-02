@@ -30,7 +30,7 @@ public class Campo {
                 .forEach(o -> o.eventoOcorreu(this, evento));
     }
 
-    boolean adicionarVizinho(Campo vizinho) {
+    public boolean adicionarVizinho(Campo vizinho) {
         boolean linhaDiferente = linha != vizinho.linha;
         boolean colunaDiferente = coluna != vizinho.coluna;
         boolean diagonal = linhaDiferente && colunaDiferente;
@@ -50,7 +50,7 @@ public class Campo {
         }
     }
 
-    void alternarMarcacao() {
+    public void alternarMarcacao() {
         if (!aberto) {
             marcado = !marcado;
 
@@ -62,7 +62,7 @@ public class Campo {
         }
     }
 
-    boolean abrir() {
+    public boolean abrir() {
 
         if (!aberto && !marcado) {
             if (minado) {
@@ -71,7 +71,7 @@ public class Campo {
             setAberto(true);
 
             if (vizinhancaSegura()) {
-                vizinhos.forEach(v -> v.abrir());
+                vizinhos.forEach(Campo::abrir);
             }
 
             return true;
@@ -80,11 +80,11 @@ public class Campo {
         }
     }
 
-    boolean vizinhancaSegura() {
+    public boolean vizinhancaSegura() {
         return vizinhos.stream().noneMatch(v -> v.minado);
     }
 
-    void minar() {
+    public void minar() {
         minado = true;
     }
 
@@ -96,7 +96,7 @@ public class Campo {
         return marcado;
     }
 
-    void setAberto(boolean aberto) {
+    public void setAberto(boolean aberto) {
         this.aberto = aberto;
 
         if(aberto){
@@ -120,17 +120,17 @@ public class Campo {
         return coluna;
     }
 
-    boolean objetivoAlcancado() {
+    public boolean objetivoAlcancado() {
         boolean desvendado = !minado && aberto;
         boolean protegido = minado && marcado;
         return desvendado || protegido;
     }
 
-    long minasNaVizinhanca() {
+    public long minasNaVizinhanca() {
         return vizinhos.stream().filter(v -> v.minado).count();
     }
 
-    void reiniciar() {
+    public void reiniciar() {
         aberto = false;
         minado = false;
         marcado = false;
