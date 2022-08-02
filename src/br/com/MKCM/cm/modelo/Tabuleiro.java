@@ -32,17 +32,7 @@ public class Tabuleiro implements CampoObservador {
     }
 
     private void notificarObservadores(boolean resultado) {
-        observadores.stream().forEach(o -> o.accept(new ResultadoEvento(resultado)));
-    }
-
-    public void abrir(int linha, int coluna) {
-        campos.parallelStream().filter(c -> c.getLinha() == linha && c.getColuna() == coluna).findFirst()
-                .ifPresent(c -> c.abrir());
-    }
-
-    public void alternarMarcacao(int linha, int coluna) {
-        campos.parallelStream().filter(c -> c.getLinha() == linha && c.getColuna() == coluna).findFirst()
-                .ifPresent(c -> c.alternarMarcacao());
+        observadores.forEach(o -> o.accept(new ResultadoEvento(resultado)));
     }
 
     private void gerarCampos() {
@@ -64,8 +54,8 @@ public class Tabuleiro implements CampoObservador {
     }
 
     private void sortearMinas() {
-        long minasArmadas = 0;
-        Predicate<Campo> minado = c -> c.isMinado();
+        long minasArmadas;
+        Predicate<Campo> minado = Campo::isMinado;
 
         do {
             int aleatorio = (int) (Math.random() * campos.size());
@@ -75,11 +65,11 @@ public class Tabuleiro implements CampoObservador {
     }
 
     public boolean objetivoAlcancado() {
-        return campos.stream().allMatch(c -> c.objetivoAlcancado());
+        return campos.stream().allMatch(Campo::objetivoAlcancado);
     }
 
     public void reiniciar() {
-        campos.stream().forEach(c -> c.reiniciar());
+        campos.forEach(Campo::reiniciar);
         sortearMinas();
     }
 
@@ -103,8 +93,8 @@ public class Tabuleiro implements CampoObservador {
 
     private void mostrarMinas() {
         campos.stream()
-                .filter(c -> c.isMinado())
+                .filter(Campo::isMinado)
                 .filter(c -> !c.isMarcado())
-                .forEach(c -> c.setAberto(true));
+                .forEach(Campo::setAberto);
     }
 }

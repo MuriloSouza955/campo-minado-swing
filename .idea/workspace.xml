@@ -4,9 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="758d72fb-c043-4af4-b91b-0b61a9b89a20" name="Changes" comment="Cap13_Aula13">
+    <list default="true" id="758d72fb-c043-4af4-b91b-0b61a9b89a20" name="Changes" comment="Cap13_Aula14">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/br/com/MKCM/cm/modelo/Campo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/MKCM/cm/modelo/Campo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/br/com/MKCM/cm/modelo/CampoEvento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/MKCM/cm/modelo/CampoEvento.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/br/com/MKCM/cm/modelo/CampoObservador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/MKCM/cm/modelo/CampoObservador.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/br/com/MKCM/cm/modelo/ResultadoEvento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/MKCM/cm/modelo/ResultadoEvento.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/br/com/MKCM/cm/modelo/Tabuleiro.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/MKCM/cm/modelo/Tabuleiro.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/br/com/MKCM/cm/visao/BotaoCampo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/MKCM/cm/visao/BotaoCampo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/br/com/MKCM/cm/visao/PainelTabuleiro.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/MKCM/cm/visao/PainelTabuleiro.java" afterDir="false" />
@@ -105,7 +108,8 @@
       <workItem from="1659301860989" duration="794000" />
       <workItem from="1659302738152" duration="35000" />
       <workItem from="1659315496646" duration="1198000" />
-      <workItem from="1659398326926" duration="7361000" />
+      <workItem from="1659398326926" duration="7397000" />
+      <workItem from="1659405817245" duration="445000" />
     </task>
     <task id="LOCAL-00001" summary="Cap13_Aula09">
       <created>1659293451560</created>
@@ -170,7 +174,14 @@
       <option name="project" value="LOCAL" />
       <updated>1659402825964</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Cap13_Aula14">
+      <created>1659405770973</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1659405770973</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -206,6 +217,7 @@
     <MESSAGE value="Cap13_Aula11" />
     <MESSAGE value="Cap13_Aula12" />
     <MESSAGE value="Cap13_Aula13" />
-    <option name="LAST_COMMIT_MESSAGE" value="Cap13_Aula13" />
+    <MESSAGE value="Cap13_Aula14" />
+    <option name="LAST_COMMIT_MESSAGE" value="Cap13_Aula14" />
   </component>
 </project>

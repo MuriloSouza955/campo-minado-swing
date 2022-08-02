@@ -12,8 +12,8 @@ public class Campo {
     private boolean minado = false;
     private boolean marcado = false;
 
-    private List<Campo> vizinhos = new ArrayList<>();
-    private List<CampoObservador> observadores = new ArrayList<>();
+    private final List<Campo> vizinhos = new ArrayList<>();
+    private final List<CampoObservador> observadores = new ArrayList<>();
 
     Campo(int linha, int coluna) {
         this.linha = linha;
@@ -25,11 +25,11 @@ public class Campo {
     }
 
     private void notificarObservadores(CampoEvento evento) {
-        observadores.stream()
+        observadores
                 .forEach(o -> o.eventoOcorreu(this, evento));
     }
 
-    boolean adicionarVizinho(Campo vizinho) {
+    void adicionarVizinho(Campo vizinho) {
         boolean linhaDiferente = linha != vizinho.linha;
         boolean colunaDiferente = coluna != vizinho.coluna;
         boolean diagonal = linhaDiferente && colunaDiferente;
@@ -38,14 +38,10 @@ public class Campo {
         int deltaColuna = Math.abs(coluna - vizinho.coluna);
         int detalGeral = deltaColuna + deltaLinha;
 
-        if(detalGeral == 1 && !diagonal) {
+        if(detalGeral == 1) {
             vizinhos.add(vizinho);
-            return true;
         } else if(detalGeral == 2 && diagonal) {
             vizinhos.add(vizinho);
-            return true;
-        } else {
-            return false;
         }
     }
 
@@ -61,23 +57,20 @@ public class Campo {
         }
     }
 
-    public boolean abrir() {
+    public void abrir() {
 
         if(!aberto && !marcado) {
             if(minado) {
                 notificarObservadores(CampoEvento.EXPLODIR);
-                return true;
+                return;
             }
 
-            setAberto(true);
+            setAberto();
 
             if(vizinhancaSegura()) {
-                vizinhos.forEach(v -> v.abrir());
+                vizinhos.forEach(Campo::abrir);
             }
 
-            return true;
-        } else {
-            return false;
         }
     }
 
@@ -97,28 +90,10 @@ public class Campo {
         return marcado;
     }
 
-    void setAberto(boolean aberto) {
-        this.aberto = aberto;
+    void setAberto() {
+        this.aberto = true;
 
-        if(aberto) {
-            notificarObservadores(CampoEvento.ABRIR);
-        }
-    }
-
-    public boolean isAberto() {
-        return aberto;
-    }
-
-    public boolean isFechado() {
-        return !isAberto();
-    }
-
-    public int getLinha() {
-        return linha;
-    }
-
-    public int getColuna() {
-        return coluna;
+        notificarObservadores(CampoEvento.ABRIR);
     }
 
     boolean objetivoAlcancado() {
