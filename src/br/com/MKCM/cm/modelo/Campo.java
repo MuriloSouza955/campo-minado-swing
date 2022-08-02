@@ -20,11 +20,11 @@ public class Campo {
         this.coluna = coluna;
     }
 
-    public void registrarObservador(CampoObservador observador){
+    public void registrarObservador(CampoObservador observador) {
         observadores.add(observador);
     }
 
-    private void notificarObservadores(CampoEvento evento){
+    private void notificarObservadores(CampoEvento evento) {
         observadores.stream()
                 .forEach(o -> o.eventoOcorreu(this, evento));
     }
@@ -36,12 +36,12 @@ public class Campo {
 
         int deltaLinha = Math.abs(linha - vizinho.linha);
         int deltaColuna = Math.abs(coluna - vizinho.coluna);
-        int deltaGeral = deltaColuna + deltaLinha;
+        int detalGeral = deltaColuna + deltaLinha;
 
-        if (deltaGeral == 1 && !diagonal) {
+        if(detalGeral == 1 && !diagonal) {
             vizinhos.add(vizinho);
             return true;
-        } else if (deltaGeral == 2 && diagonal) {
+        } else if(detalGeral == 2 && diagonal) {
             vizinhos.add(vizinho);
             return true;
         } else {
@@ -50,12 +50,12 @@ public class Campo {
     }
 
     public void alternarMarcacao() {
-        if (!aberto) {
+        if(!aberto) {
             marcado = !marcado;
 
-            if(marcado){
+            if(marcado) {
                 notificarObservadores(CampoEvento.MARCAR);
-            }else{
+            } else {
                 notificarObservadores(CampoEvento.DESMARCAR);
             }
         }
@@ -63,14 +63,15 @@ public class Campo {
 
     public boolean abrir() {
 
-        if (!aberto && !marcado) {
-            if (minado) {
+        if(!aberto && !marcado) {
+            if(minado) {
                 notificarObservadores(CampoEvento.EXPLODIR);
                 return true;
             }
+
             setAberto(true);
 
-            if (vizinhancaSegura()) {
+            if(vizinhancaSegura()) {
                 vizinhos.forEach(v -> v.abrir());
             }
 
@@ -99,7 +100,7 @@ public class Campo {
     void setAberto(boolean aberto) {
         this.aberto = aberto;
 
-        if(aberto){
+        if(aberto) {
             notificarObservadores(CampoEvento.ABRIR);
         }
     }
@@ -120,7 +121,7 @@ public class Campo {
         return coluna;
     }
 
-    public boolean objetivoAlcancado() {
+    boolean objetivoAlcancado() {
         boolean desvendado = !minado && aberto;
         boolean protegido = minado && marcado;
         return desvendado || protegido;
@@ -130,9 +131,10 @@ public class Campo {
         return (int) vizinhos.stream().filter(v -> v.minado).count();
     }
 
-    public void reiniciar() {
+    void reiniciar() {
         aberto = false;
         minado = false;
         marcado = false;
+        notificarObservadores(CampoEvento.REINICIAR);
     }
 }
